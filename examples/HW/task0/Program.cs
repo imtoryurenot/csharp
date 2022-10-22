@@ -5,7 +5,7 @@
 //-3 -> 9 
 //-7 -> 49
 
-System.Console.Write("enter the number >"); // show a hint on the screen
+System.Console.Write("enter the number >");     // show a hint on the screen
 string inputString = Console.ReadLine();       //  this one is to get entered line from console
 int value = Convert.ToInt32(inputString);     //   преобразуем к целому типу
 
