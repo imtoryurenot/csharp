@@ -9,12 +9,13 @@
 // 2 -> " -2, -1, 0, 1, 2"
 
 System.Console.Write("enter your number > ");
-int value = Convert.ToInt32(Console.ReadLine());
+int value = Convert.ToInt32(Console.ReadLine()); // концертация в числовое значение
 
-int count = value * -1;
+int count = value * -1; //создание счетчика от обратного потому что умножение целого числа на -1 = -целоечисло/либо можно написать int count = -value;
 
-while (count <= value)
+while (count < value) // считать до тех пор, пока не появится введенное число 
 {
-    System.Console.Write(count + ", ");
+    System.Console.Write(count + ", "); 
     count++;
 }
+System.Console.WriteLine(value);
