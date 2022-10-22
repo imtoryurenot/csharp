@@ -2,3 +2,5 @@
 //4 -> да
 //-3 -> нет
 //7 -> нет
+
+Console.WriteLine("enter your first number :");

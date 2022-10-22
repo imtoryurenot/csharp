@@ -18,7 +18,7 @@ if (a > b)
     System.Console.WriteLine("fist one is max");
 }
 
-if (a < b);
+if (a < b)
 {
     System.Console.WriteLine("second one is max");
 }
