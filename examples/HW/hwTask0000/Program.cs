@@ -3,12 +3,30 @@
 //5 -> 2, 4
 //8 -> 2, 4, 6, 8
 
-System.Console.Write("enter your number > ");
-int b = Convert.ToInt32(Console.ReadLine());
-
-int start = 0;
-
-while (start < b-1)
+int Prompt(string message)
 {
-    System.Console.Write($"{start = start+2}" + (",")); // не понимаю, почему повялвяется двойная запятая
+    Console.Write(message);
+    int num = Convert.ToInt32(Console.ReadLine());
+    return num;
+}
+
+int value = Prompt ("enter your number");
+int num = 2;
+
+while (value < 1)
+{
+        value = Prompt("nonono try again");
+}
+
+if (value == 1)
+{
+    Console.WriteLine("nonono try again");
+}
+else
+{
+while (value >= num)
+    {
+    value = Prompt($", {num}");
+    num = num + 2;
+    }
 }

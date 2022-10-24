@@ -3,16 +3,21 @@
 //-3 -> нет
 //7 -> нет
 
-Console.WriteLine("this programm is gonna help you to fint out if the number is divided by 2, enter your number>");
-
-int a = Convert.ToInt32(Console.ReadLine());
-
-if (a %2 == 0) // до этого стоял / и почему-то программа работала некорректно. странно
+int Prompt(string message)
 {
-    System.Console.WriteLine("it can be divided");
+    Console.Write(message);
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
+}
+
+int value = Prompt ("this programm is gonna help you to fint out if the number is divided by 2, enter your number>");
+
+if (value % 2 == 0) // до этого стоял / и почему-то программа работала некорректно. странно
+{
+    System.Console.WriteLine($"bingo! {value} can be divided");
 }
 
 else
 {
-    System.Console.WriteLine("it can not be divided. choose another one :)");
+    System.Console.WriteLine($" nah! {value} can not be divided. choose another one :)");
 }
