@@ -1,0 +1,54 @@
+// 2: Задайте одномерный массив, заполненный случайными числами.  
+// Найдите сумму элементов, стоящих на нечётных позициях. 
+// [3, 7, 23, 12] -> 19 
+// [-4, -6, 4, 6] -> 0 
+ 
+int lengthArr = number("Input a length of array"); 
+int min = number("Enter min of array"); 
+int max = number("Enter max of array"); 
+ 
+int number(string message)//input number 
+{ 
+    Console.WriteLine(message); 
+    int Number = Convert.ToInt32(Console.ReadLine()); 
+    return Number; 
+} 
+ 
+int[] GetArray(int lengthOfArray, int min, int max) 
+{ 
+    int[] array = new int[lengthOfArray]; 
+    for (int i = 0; i < array.Length; i++) 
+    { 
+        array[i] = new Random().Next(min, max); 
+    } 
+    return array; 
+} 
+ 
+void PrintArray(int[] array) 
+{ 
+    foreach (int item in array) 
+    { 
+        Console.Write($"{item} "); 
+    } 
+} 
+ 
+int sumoddnum(int[] array) 
+{ 
+    int sum = 0; 
+    for (int i = 1; i <= array.Length; i += 2) 
+    { 
+        sum += array[i]; 
+    } 
+    return sum; 
+} 
+ 
+void Execute() 
+{ 
+    int[] array = GetArray(lengthArr, min, max); 
+    int sum = sumoddnum(array); 
+    PrintArray(array); 
+    Console.WriteLine(); 
+    Console.WriteLine($"Sum of integers in odd posion is {sum}"); 
+} 
+ 
+Execute();
