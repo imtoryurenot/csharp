@@ -1,0 +1,28 @@
+/ Задача 1: Напишите цикл, который принимает на вход два числа (A и B) 
+// и возводит число A в натуральную степень B. Реализовать через функции. 
+// 3, 5 -> 243 (3⁵) 
+// 2, 4 -> 16 
+ 
+ 
+int PromptInt(string message) 
+{ 
+    Console.WriteLine(message); 
+    int number = Convert.ToInt32(Console.ReadLine()); 
+    return number; 
+} 
+int A = PromptInt("Enter number > "); 
+int B = PromptInt("Enter integer that will be power"); 
+ 
+int Multiplication(int A, int B)
+{ 
+    int newNumber = A; 
+    while(B-1 > 0) 
+    { 
+        newNumber = newNumber * A; 
+       B--; 
+    } 
+    return newNumber; 
+} 
+ 
+int raisedNumber = Multiplication(A, B); 
+Console.WriteLine($"{raisedNumber} is {A} to the power of {B} ");
