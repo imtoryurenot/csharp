@@ -1,0 +1,73 @@
+// 2: Задайте прямоугольный двумерный массив. Напишите программу,  
+// которая будет находить строку с наименьшей суммой элементов. 
+// Например, задан массив: 
+// 1 4 7 2 
+// 5 9 2 3 
+// 8 4 2 4 
+// 5 2 6 7 
+// Программа считает сумму элементов в каждой строке  
+// и выдаёт номер строки с наименьшей суммой элементов: 1 строка 
+ 
+int ReadData(string message) 
+{ 
+    Console.WriteLine(message); 
+    return Convert.ToInt32(Console.ReadLine()); 
+} 
+ 
+int[,] CreateArray(int m, int n) 
+{ 
+    int[,] array = new int[m, n]; 
+    for (int i = 0; i < array.GetLength(0); i++) 
+    { 
+        for (int j = 0; j < array.GetLength(1); j++) 
+        { 
+            array[i, j] = new Random().Next(0, 10); 
+        } 
+    } 
+    return array; 
+} 
+ 
+void PrintArray(int[,] array) 
+{ 
+    for (int i = 0; i < array.GetLength(0); i++) 
+    { 
+        for (int j = 0; j < array.GetLength(1); j++) 
+        { 
+            Console.Write($"{array[i, j]}\t"); 
+        } 
+        Console.WriteLine(); 
+    } 
+    Console.WriteLine(); 
+} 
+ 
+int GetSum(int[,] array, int i) 
+{ 
+    int sum = 0; 
+    for (int j = 0; j < array.GetLength(1); j++) 
+    { 
+        sum += array[i, j]; 
+    } 
+    return sum; 
+} 
+ 
+int rowNumb(int[,] array) 
+{ 
+    int index = 0; 
+    for (int i = 0; i < array.GetLength(0) - 1; i++) 
+    { 
+        if (GetSum(array, i) > GetSum(array, i + 1)) index = i + 1; 
+    } 
+    return index; 
+} 
+ 
+void Main() 
+{ 
+    int m = ReadData("Enter the row amount in array"); 
+    int n = ReadData("Enter column amount in array"); 
+    int[,] array = CreateArray(m, n); 
+    PrintArray(array); 
+    int summin = rowNumb(array) + 1;  
+    Console.WriteLine($"Number of the row with the minimal summ is {summin}"); 
+} 
+ 
+Main();
