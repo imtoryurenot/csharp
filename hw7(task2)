@@ -1,0 +1,60 @@
+// Задача 2. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+// и возвращает значение этого элемента или же указание, что такого элемента нет. 
+// Например, задан массив: 
+// 1 4 7 2 
+// 5 9 2 3 
+// 8 4 2 4 
+// 17 -> такого числа в массиве нет 
+ 
+int ReadData(string message) 
+{ 
+    Console.WriteLine(message); 
+    int number = Convert.ToInt32(Console.ReadLine()); 
+    return number; 
+} 
+ 
+void PrintArray(double[,] array) 
+{ 
+    for (int i = 0; i < array.GetLength(0); i++) 
+    { 
+        for (int j = 0; j < array.GetLength(1); j++) 
+        { 
+            Console.Write($"{array[i, j]:f2}\t"); 
+        } 
+        Console.WriteLine(); 
+    } 
+} 
+ 
+double[,] CreateArray(int m, int n) 
+{ 
+    double[,] array = new double[m, n]; 
+    for (int i = 0; i < array.GetLength(0); i++) 
+    { 
+        for (int j = 0; j < array.GetLength(1); j++) 
+        { 
+            array[i, j] = new Random().Next(0, 10) + new Random().NextDouble(); 
+        } 
+    } 
+    return array; 
+} 
+ 
+void GetElement(double[,] array, int Index1, int Index2) 
+{ 
+    int RIA = array.GetLength(0); 
+    int CIA = array.GetLength(1); 
+    if ((Index1 >= 0 && Index1 <= RIA) && (Index2 >= 0 || Index2 <= CIA)) Console.WriteLine($"In array[{Index1}, {Index2}] attached {array[Index1, Index2]:f2}");  
+    else Console.WriteLine("This array doesn.t contain the input indexes"); 
+} 
+ 
+void Execute() 
+{ 
+    int RIA = ReadData("Enter amount of rows in array"); 
+    int CIA= ReadData("Enter amount of colimns in array"); 
+    int Index1 = ReadData("Enter index of the row to find the number"); 
+    int Index2 = ReadData("Enter index of the columns to find the number"); 
+    double[,] arr = CreateArray(RIA, CIA); 
+    PrintArray(arr); 
+    GetElement(arr, Index1, Index2); 
+} 
+ 
+Execute();
