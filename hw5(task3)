@@ -1,0 +1,67 @@
+// 3: Задайте массив вещественных чисел. 
+//  Найдите разницу между максимальным и минимальным элементов массива. 
+// [3, 7.4, 22.3, 2, 78] -> 76 
+ 
+int Number(string message) 
+{ 
+    System.Console.WriteLine(message); 
+    return Convert.ToInt32(Console.ReadLine()); 
+} 
+ 
+double[] GetArray(int lengthArray) 
+{ 
+    double[] array = new double[lengthArray]; 
+    for (int i = 0; i < array.Length; i++) 
+    { 
+        array[i] = new Random().NextDouble() + new Random().Next(0,20); 
+    } 
+    return array; 
+} 
+ 
+double findmin(double[] array) 
+{ 
+    double min = array[0]; 
+    for (int i = 1; i < array.Length; i++) 
+    { 
+        if (array[i] < min) min = array[i]; 
+    } 
+    return min; 
+} 
+ 
+double findmax(double[] array) 
+{ 
+    double max = array[0]; 
+    for (int i = 1; i < array.Length; i++) 
+    { 
+        if (array[i] > max) max = array[i]; 
+    } 
+    return max; 
+} 
+ 
+void PrintArray(double[] array) 
+{ 
+    foreach (double item in array) 
+    { 
+        Console.Write($"{item:f4} "); 
+    } 
+    System.Console.WriteLine(); 
+} 
+ 
+double Diff(double min, double max) => max - min; 
+ 
+void Execute() 
+{ 
+    int lengthArray = Number("Enter length of array"); 
+    int Max = Number("Enter max of array"); 
+    int Min = Number("Enter min of array"); 
+    double[] array = GetArray(lengthArray); 
+    double min = findmin(array); 
+    double max = findmax(array); 
+    double diff = Diff(min, max); 
+ 
+    PrintArray(array); 
+ 
+    Console.WriteLine($"Minimal number in array is {min:f2}"); 
+    Console.WriteLine($"Maximal number in array is {max:f2}"); 
+    Console.WriteLine($"Difference between min and max  is {diff:f2}"); 
+} 
